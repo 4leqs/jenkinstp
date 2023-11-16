@@ -61,19 +61,7 @@ pipeline {
         }
     }
     
-    post {
-        success {
-            emailext body: 'Le build a réussi.',
-                    subject: 'Succès du build',
-                    to: 'jeancoignard@gmail.com'
-        }
-        failure {
-            emailext body: 'Le build a échoué.',
-                    subject: 'Échec du build',
-                    to: 'jeancoignard@gmail.com'
-        }
-    }
-}
+    
 post {
     always {
       script {
@@ -81,7 +69,7 @@ post {
           description: "Le build a ${currentBuild.result}",
           result: currentBuild.result,
           title: env.JOB_NAME,
-          webhookURL: "https://discordapp.com/api/webhooks/1174699311032967248/GU0ZKUp7xVONa_eTlcrgvo1RJlHWSuqzohLCvG55OMoXjPbejt0QyoSTQUvoVI8PJ_Xw")
+          webhookURL: "https://discordapp.com/api/webhooks/1174703049139310612/aICX4eQDVVeqmNNyKQXuIyNIdeQ5_Oq5ScER3Rspdom8LlNCwLYbhg8Bcb9TKYL3NBgl")
         }
 
       }
