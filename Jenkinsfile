@@ -1,19 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Depot') {
+    stage('Cloner le dépôt') {
+      steps {
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: '']]])
+      }
+    }
+
+    stage('Construire l\'image Docker') {
       steps {
         script {
-          try {
-            sh 'git clone https://github.com/Jean-Coignard/Jenkins.git'
-          } catch (Exception e) {
-            currentBuild.result = 'FAILURE'
-            error "Erreur lors du clonage du dépôt : ${e.message}"
-          }
+          docker.build('test-image-jenkins')
         }
 
       }
     }
 
   }
-}
