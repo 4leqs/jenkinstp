@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Jean-Coignard/Jenkins.git']]])
+                        checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/4leqs/jenkinstp.git']]])
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
                         error "Erreur lors du clonage du dépôt : ${e.getMessage()}"
