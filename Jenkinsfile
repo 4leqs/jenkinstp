@@ -74,3 +74,14 @@ pipeline {
         }
     }
 }
+post {
+    always {
+      script {
+        discordSend(
+          description: "Le build a ${currentBuild.result}",
+          result: currentBuild.result,
+          title: env.JOB_NAME,
+          webhookURL: "https://discordapp.com/api/webhooks/1174699311032967248/GU0ZKUp7xVONa_eTlcrgvo1RJlHWSuqzohLCvG55OMoXjPbejt0QyoSTQUvoVI8PJ_Xw")
+        }
+
+      }
