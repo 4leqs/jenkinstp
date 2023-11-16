@@ -61,7 +61,17 @@ pipeline {
         }
     }
     
-post {
+stage('Suppresion Image') {
+      steps {
+        sh '''docker ps -a
+'''
+        sleep 90
+        sh 'docker rm --force test-auto-jenkins'
+        sh 'docker ps -a'
+      }
+    }
+    
+    post {
     always {
       script {
         discordSend(
