@@ -59,8 +59,6 @@ pipeline {
                 }
             }
         }
-    }
-    
         stage('Suppresion Image') {
               steps {
                 sh '''docker ps -a'''
@@ -69,6 +67,9 @@ pipeline {
                 sh 'docker ps -a'
               }
             }
+    }
+    
+        
     
     post {
     always {
